@@ -126,6 +126,8 @@ func InsertProfile( db *mongo.Database, col string,nama_user string,  data_pendi
 }
 
 
+
+
 func GetProfileFromNama_user(nama_user string, db *mongo.Database, col string) (profile model.Profile) {
 	data_profile := db.Collection(col)
 	filter := bson.M{"nama_user": nama_user}
@@ -151,3 +153,59 @@ func GetAllProfileFromNama_user(nama_user string, db *mongo.Database, col string
 	return 
 }
 
+// func GetAllUser(db *mongo.Database, col string) (user model.User) {
+// 	data_profile := db.Collection(col)
+// 	filter := bson.M{}
+// 	cursor, err := data_profile.Find(context.TODO(), filter)
+// 	if err != nil {
+// 		fmt.Println("GetALLUser :", err)
+// 	}
+// 	err = cursor.All(context.TODO(), &user)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	return
+// }
+
+// func GetAllPendidikan(db *mongo.Database, col string) (pendidikan model.Pendidikan) {
+// 	data_profile := db.Collection(col)
+// 	filter := bson.M{}
+// 	cursor, err := data_profile.Find(context.TODO(), filter)
+// 	if err != nil {
+// 		fmt.Println("GetALLPendidikan :", err)
+// 	}
+// 	err = cursor.All(context.TODO(), &pendidikan)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	return
+// }
+
+// func GetAllPengalaman(db *mongo.Database, col string) (pengalaman model.Pengalaman) {
+// 	data_profile := db.Collection(col)
+// 	filter := bson.M{}
+// 	cursor, err := data_profile.Find(context.TODO(), filter)
+// 	if err != nil {
+// 		fmt.Println("GetALLPengalaman :", err)
+// 	}
+// 	err = cursor.All(context.TODO(), &pengalaman)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	return
+// }
+
+
+func GetAllProfile(db *mongo.Database, col string) (profile model.Profile) {
+	data_profile := db.Collection(col)
+	filter := bson.M{}
+	cursor, err := data_profile.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetAllProfile :", err)
+	}
+	err = cursor.All(context.TODO(), &profile)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}
