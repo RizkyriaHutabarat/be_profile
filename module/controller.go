@@ -144,7 +144,7 @@ func GetAllProfileFromNama_user(nama_user string, db *mongo.Database, col string
 	filter := bson.M{"nama_user": nama_user}
 	cursor, err := data_profile.Find(context.TODO(), filter)
 	if err != nil {
-		fmt.Printf("GetAllProfileFromNama_user: %v\n", err)
+		fmt.Printf("getAllProfileFromNama_user: %v\n", err)
 	}
 	err = cursor.All(context.TODO(), &profile)
 	if err != nil{
@@ -201,7 +201,7 @@ func GetAllProfile(db *mongo.Database, col string) (profile model.Profile) {
 	filter := bson.M{}
 	cursor, err := data_profile.Find(context.TODO(), filter)
 	if err != nil {
-		fmt.Println("GetAllProfile :", err)
+		fmt.Println("GetAllData :", err)
 	}
 	err = cursor.All(context.TODO(), &profile)
 	if err != nil {

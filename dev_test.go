@@ -211,7 +211,7 @@ func TestGetProfileFromNama_user(t *testing.T) {
 // 	fmt.Println(biodata)
 // }
 
-func TestGetAllProfile(t *testing.T) {
+func TestGetAll(t *testing.T) {
 	biodata := module.GetAllProfile(module.MongoConn, "profile")
 	fmt.Println(biodata)
 }
