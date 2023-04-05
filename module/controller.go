@@ -116,7 +116,16 @@ func GetSkillFromNama(nama string, db *mongo.Database, col string) (skill model.
 
 
 
-func InsertProfile( db *mongo.Database, col string,nama_user string,  data_pendidikan []model.Pendidikan, data_pengalaman []model.Pengalaman, skills []model.Skill) (InsertedID interface{}) {
+// func InsertProfile( db *mongo.Database, col string,nama_user string,  data_pendidikan []model.Pendidikan, data_pengalaman []model.Pengalaman, skills []model.Skill) (InsertedID interface{}) {
+// 	var profile model.Profile
+// 	profile.Nama_user = nama_user
+// 	profile.Data_pendidikan = data_pendidikan
+// 	profile.Data_pengalaman = data_pengalaman
+// 	profile.Skills = skills
+// 	return InsertOneDoc(db,col, profile)
+// }
+
+func InsertProfile( db *mongo.Database, col string,nama_user string,  data_pendidikan model.Pendidikan, data_pengalaman model.Pengalaman, skills model.Skill) (InsertedID interface{}) {
 	var profile model.Profile
 	profile.Nama_user = nama_user
 	profile.Data_pendidikan = data_pendidikan
@@ -196,7 +205,7 @@ func GetAllProfileFromNama_user(nama_user string, db *mongo.Database, col string
 // }
 
 
-func GetAllProfile(db *mongo.Database, col string) (profile model.Profile) {
+func GetAllProfile(db *mongo.Database, col string) (profile []model.Profile) {
 	data_profile := db.Collection(col)
 	filter := bson.M{}
 	cursor, err := data_profile.Find(context.TODO(), filter)

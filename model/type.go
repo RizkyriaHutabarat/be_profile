@@ -36,9 +36,16 @@ type Skill struct {
 	Level 	string 	                `bson:"level,omitempty" json:"level,omitempty"`
 }
 
+// type Profile struct {
+//     Nama_user        string           `bson:"nama_user,omitempty" json:"nama_user,omitempty"`
+//     Data_pendidikan  []Pendidikan   `bson:"data_pendidikan,omitempty" json:"data_pendidikan,omitempty"`
+//     Data_pengalaman  []Pengalaman   `bson:"data_pengalaman,omitempty" json:"data_pengalaman,omitempty"`
+//     Skills      []Skill         `bson:"skills,omitempty" json:"skills,omitempty"`
+// }
+
 type Profile struct {
     Nama_user        string           `bson:"nama_user,omitempty" json:"nama_user,omitempty"`
-    Data_pendidikan  []Pendidikan   `bson:"data_pendidikan,omitempty" json:"data_pendidikan,omitempty"`
-    Data_pengalaman  []Pengalaman   `bson:"data_pengalaman,omitempty" json:"data_pengalaman,omitempty"`
-    Skills      []Skill         `bson:"skills,omitempty" json:"skills,omitempty"`
+    Data_pendidikan  Pendidikan   `bson:"data_pendidikan,omitempty" json:"data_pendidikan,omitempty"`
+    Data_pengalaman  Pengalaman   `bson:"data_pengalaman,omitempty" json:"data_pengalaman,omitempty"`
+    Skills           Skill         `bson:"skills,omitempty" json:"skills,omitempty"`
 }
